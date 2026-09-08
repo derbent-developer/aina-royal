@@ -31,6 +31,7 @@ addEventListener('load', () => {
     loader.classList.add('is-off');
     document.body.classList.remove('is-locked');
     kickHero();
+    jumpToHash();
   }, 420);
 });
 document.body.classList.add('is-locked');
@@ -39,8 +40,16 @@ setTimeout(() => { // страховка, если что-то не догруз
     loader.classList.add('is-off');
     document.body.classList.remove('is-locked');
     kickHero();
+    jumpToHash();
   }
 }, 4000);
+
+/* ссылка вида /#services должна доводить до секции: во время заставки
+   прокрутка заблокирована, поэтому переход повторяем после неё */
+function jumpToHash(){
+  const t = location.hash && document.querySelector(location.hash);
+  if (t) requestAnimationFrame(() => t.scrollIntoView({ behavior: 'auto', block: 'start' }));
+}
 
 function kickHero(){
   $$('.hero__title .line > span, .hero__title em > span').forEach((el, i) => {

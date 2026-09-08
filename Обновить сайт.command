@@ -52,6 +52,17 @@ echo "${BOLD}Что поменяли?${OFF} ${DIM}(можно просто на�
 read -r "MSG?→ "
 [[ -z "$MSG" ]] && MSG="Обновление сайта $(date '+%d.%m.%Y %H:%M')"
 
+# ── сдвигаем версию, иначе браузеры отдадут старый кэш ───────
+if git diff --name-only --cached HEAD 2>/dev/null | grep -qE 'assets/(css|js)/' || \
+   git diff --name-only | grep -qE 'assets/(css|js)/'; then
+  V=$(grep -o 'style\.css?v=[0-9]*' index.html | head -1 | sed 's/.*v=//')
+  if [[ -n "$V" ]]; then
+    NEW=$((V + 1))
+    sed -i '' "s/?v=$V/?v=$NEW/g" index.html
+    echo "${DIM}Версия стилей и скриптов: v$V → v$NEW${OFF}"
+  fi
+fi
+
 # ── отправка ─────────────────────────────────────────────────
 echo
 echo "${DIM}Сохраняю…${OFF}"
