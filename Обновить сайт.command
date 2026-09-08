@@ -31,7 +31,7 @@ fi
 
 # ── что именно изменилось ────────────────────────────────────
 echo "${BOLD}Изменения:${OFF}"
-git status --short | sed 's/^/  /'
+git -c core.quotepath=false status --short | sed 's/^/  /'
 echo
 
 # ── тяжёлые файлы GitHub не примет ───────────────────────────
