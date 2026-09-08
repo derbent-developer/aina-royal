@@ -35,12 +35,15 @@ git status --short | sed 's/^/  /'
 echo
 
 # ── тяжёлые файлы GitHub не примет ───────────────────────────
-BIG=$(find . -type f -size +95M -not -path './.git/*' 2>/dev/null)
+BIG=""
+while IFS= read -r f; do
+  git check-ignore -q "$f" || BIG="$BIG$f\n"      # то, что игнорируется, не мешает
+done < <(find . -type f -size +95M -not -path './.git/*' 2>/dev/null)
+
 if [[ -n "$BIG" ]]; then
-  echo "${YELLOW}Эти файлы больше 95 МБ и на GitHub не поедут:${OFF}"
-  echo "$BIG" | sed 's/^/  /'
-  echo "${DIM}Видео (.mov, .mp4) уже в списке игнорируемых — их можно спокойно${OFF}"
-  echo "${DIM}держать в папке. Остальное лучше убрать отсюда.${OFF}"
+  echo "${YELLOW}Эти файлы больше 95 МБ — GitHub их не примет:${OFF}"
+  printf "$BIG" | sed 's/^/  /'
+  echo "${DIM}Уберите их из папки, иначе отправка сорвётся.${OFF}"
   echo
 fi
 
