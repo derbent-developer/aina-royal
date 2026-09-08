@@ -39,6 +39,7 @@ html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
 
 body{
   margin:0;
+  -webkit-tap-highlight-color:transparent;
   background:var(--cream);
   color:var(--ink);
   font:400 17px/1.65 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
@@ -184,7 +185,7 @@ button{ font:inherit; color:inherit; }
 .nav__links a:hover{ color:var(--ink); }
 .nav__links a:hover::after{ right:0; }
 
-.nav__right{ display:flex; align-items:center; gap:18px; }
+.nav__right{ display:flex; align-items:center; gap:18px; margin-left:auto; }
 .nav__tel{ text-decoration:none; font-size:15px; color:var(--ink); white-space:nowrap; }
 .nav__cta{ --pad:11px 22px; font-size:14px; }
 
@@ -222,7 +223,7 @@ button{ font:inherit; color:inherit; }
 
 .hero__copy{
   position:relative; z-index:2; text-align:center; color:#fff;
-  padding:0 22px; max-width:900px;
+  padding:0 22px 76px; max-width:900px;
   will-change:transform, opacity;
 }
 .hero__kicker{
@@ -234,7 +235,7 @@ button{ font:inherit; color:inherit; }
 
 .hero__title{
   font-family:'Cormorant Garamond', serif; font-weight:300;
-  font-size:clamp(64px, 15vw, 190px); line-height:.88;
+  font-size:clamp(52px, min(15vw, 20vh), 190px); line-height:.88;
   margin:0 0 26px; letter-spacing:-.02em;
   text-shadow:0 18px 60px rgba(50,25,40,.35);
 }
@@ -259,6 +260,17 @@ button{ font:inherit; color:inherit; }
 }
 .hero__scroll i{ width:1px; height:44px; background:linear-gradient(#ffffffaa, transparent); animation:drop 2.4s var(--ease) infinite; }
 @keyframes drop{ 0%{transform:scaleY(0); transform-origin:top} 45%{transform:scaleY(1); transform-origin:top} 55%{transform:scaleY(1); transform-origin:bottom} 100%{transform:scaleY(0); transform-origin:bottom} }
+
+/* на низких экранах обложке нужно меньше воздуха */
+@media (max-height:820px){
+  .hero__title{ margin-bottom:18px; }
+  .hero__lead{ margin-bottom:26px; }
+  .hero__scroll i{ height:32px; }
+}
+@media (max-height:640px){
+  .hero__copy{ padding-bottom:22px; }
+  .hero__scroll{ display:none; }
+}
 
 /* ═══════════════════════════════════════════════════ ЦИФРЫ ══ */
 .stats{ background:var(--cream); padding:clamp(60px,8vw,110px) 0; }
@@ -661,27 +673,114 @@ button{ font:inherit; color:inherit; }
     background:rgba(255,249,246,.97); backdrop-filter:blur(20px);
     border-radius:var(--r-l); box-shadow:var(--shadow-m); text-align:center;
   }
-  .nav__links.is-open a{ padding:13px; font-size:17px; }
+  .nav__links.is-open a{ padding:15px; font-size:17px; }
   .nav__links.is-open a::after{ display:none; }
 }
+
 @media (max-width:900px){
   .nav__tel{ display:none; }
   .stats__row{ grid-template-columns:repeat(2,1fr); row-gap:44px; }
   .stat:nth-child(3)::before{ display:none; }
-  .stat+.stat::before{ left:calc(-1 * clamp(10px,1.5vw,22px)); }
   .fab{ display:block; }
 }
-@media (max-width:560px){
+
+/* ───────────────────────────────────────────────── телефоны ── */
+@media (max-width:760px){
   body{ font-size:16px; }
+
+  /* шапка компактнее, кнопка записи всегда под большим пальцем */
+  .nav{ padding:14px 16px; gap:10px; }
+  .nav__logo{ flex:0 0 auto; }
+  .nav__right{ gap:10px; }
   .nav__name{ display:none; }
-  .nav__cta{ --pad:10px 18px; font-size:13.5px; }
-  .hero{ height:200vh; }
-  .stats__row{ grid-template-columns:1fr; }
+  .nav__ars{ font-size:26px; }
+  .nav__cta{ --pad:11px 18px; font-size:13.5px; }
+  .burger{ width:44px; height:44px; }
+
+  /* обложка */
+  .hero{ height:190vh; }
+  .hero__img{ object-position:center 45%; }
+  .hero__kicker{ font-size:10px; letter-spacing:.26em; margin-bottom:16px; }
+  .hero__title{ margin-bottom:20px; }
+  .hero__lead{ font-size:15.5px; margin-bottom:28px; }
+  .hero__actions{ flex-direction:column; align-items:stretch; gap:10px; padding:0 12px; }
+  .hero__actions .btn{ width:100%; }
+
+  /* цифры — в одну колонку с разделителями */
+  .stats__row{ grid-template-columns:1fr; gap:0; }
   .stat+.stat::before{ display:none; }
-  .stat+.stat{ padding-top:34px; border-top:1px solid rgba(176,138,85,.2); }
-  .book__steps li{ flex-direction:column; gap:6px; font-size:11px; padding:14px 4px; }
-  .book__steps li span{ width:24px; height:24px; }
+  .stat+.stat{ padding-top:30px; margin-top:30px; border-top:1px solid rgba(176,138,85,.2); }
+  .stat__num{ font-size:54px; }
+
+  /* история */
+  .story__texts article{ padding-bottom:12vh; }
+  .story__texts h3{ font-size:clamp(32px,9vw,46px); }
+  .story__texts p{ font-size:16px; }
+
+  /* лента работ */
+  .strip__track{ padding-left:22px; gap:12px; }
+  .strip__track figure{ width:62vw; }
+  .strip__track figure:nth-child(even){ margin-top:26px; }
+
+  /* услуги: вкладки едут вбок, а не переносятся в пять рядов */
+  .svc__tabs{
+    flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none;
+    margin-inline:-22px; padding:2px 22px 10px;
+    scroll-snap-type:x proximity;
+  }
+  .svc__tabs::-webkit-scrollbar{ display:none; }
+  .svc__tab{ flex:0 0 auto; scroll-snap-align:start; padding:12px 18px; }
+  .svc__list li{ padding:14px 0; gap:10px; }
+  .svc__name{ font-size:15px; }
+  .svc__more .btn{ width:100%; }
+
+  /* запись */
+  .book{ border-radius:var(--r-l); }
+  .book__steps li{ flex-direction:column; gap:6px; font-size:10.5px; padding:14px 4px; letter-spacing:.02em; }
+  .book__steps li span{ width:24px; height:24px; font-size:11.5px; }
+  .book__body{ min-height:0; }
+  .book__days{ margin-inline:-22px; padding-inline:22px; }
+  .book__day{ min-width:68px; padding:12px; }
+  .book__time{ padding:12px 18px; }     /* тач-цель не меньше 44 px */
+  .book__foot{ flex-direction:column-reverse; align-items:stretch; gap:10px; }
+  .book__foot .btn{ width:100%; padding:16px; }
+  .book__done-actions{ flex-direction:column; align-items:stretch; }
+  .book__done-actions .btn{ width:100%; }
+
+  /* мастера и галерея */
+  .masters__grid{ gap:14px; }
+  .mcard{ padding:26px 22px 24px; }
+  .gal__filters{ flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; margin-inline:-22px; padding:2px 22px 10px; }
+  .gal__filters::-webkit-scrollbar{ display:none; }
+  .gal__filter{ flex:0 0 auto; padding:11px 18px; }
+
+  /* отзывы */
+  .topics{ grid-template-columns:1fr 1fr; gap:16px 22px; }
+  .rev__nav button{ width:48px; height:48px; }
+
+  /* контакты и подвал */
+  .contacts__btns .btn{ flex:1; }
+  .map{ aspect-ratio:3/4; }
   .foot__links{ gap:14px 20px; }
+
+  /* плавающая кнопка — с учётом «челюсти» iPhone */
+  .fab{ bottom:calc(14px + env(safe-area-inset-bottom)); padding:16px 34px; }
+}
+
+@media (max-width:400px){
+  .wrap, .stats__row, .strip__head{ width:calc(100% - 32px); }
+  .topics{ grid-template-columns:1fr; }
+  .gal__grid{ columns:2; column-gap:8px; }
+  .gal__item{ margin-bottom:8px; }
+  .book__body{ padding:22px 18px; }
+  .book__foot{ padding:18px; }
+}
+
+/* горизонтальная ориентация телефона */
+@media (max-height:520px) and (orientation:landscape){
+  .hero{ height:170vh; }
+  .hero__title{ font-size:clamp(44px,9vh,70px); }
+  .hero__lead{ display:none; }
 }
 
 @media (prefers-reduced-motion:reduce){

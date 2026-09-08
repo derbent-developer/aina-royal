@@ -8,6 +8,16 @@
 const $  = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const P  = 'assets/photos/';
+const PS = 'assets/photos/sm/';   // 640 px — телефон крупным планом
+const PX = 'assets/photos/xs/';   // 400 px — плитки галереи
+
+/* Браузер сам берёт нужный размер. Ширины указаны настоящие,
+   иначе выбор ломается и телефон качает оригинал. */
+const srcset = p => {
+  const w = (PHOTO_DIMS[p] || [960])[0];
+  return `srcset="${PX}${p} 400w, ${PS}${p} 640w, ${P}${p} ${w}w"`;
+};
+const dims = p => { const d = PHOTO_DIMS[p]; return d ? `width="${d[0]}" height="${d[1]}"` : ''; };
 const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 
@@ -85,7 +95,7 @@ $$('.count').forEach(el => countIO.observe(el));
 /* ══════════════════════════════════════════════════ ИСТОРИЯ ══ */
 const storyMedia = $('#storyMedia'), storyTexts = $('#storyTexts'), storyDots = $('#storyDots');
 storyMedia.innerHTML = PHOTOS.story.map((p, i) =>
-  `<figure class="${i === 0 ? 'is-on' : ''}"><img src="${P}${p}" alt="" loading="${i ? 'lazy' : 'eager'}"></figure>`).join('');
+  `<figure class="${i === 0 ? 'is-on' : ''}"><img src="${P}${p}" ${srcset(p)} sizes="100vw" alt="" decoding="async" loading="${i ? 'lazy' : 'eager'}"></figure>`).join('');
 storyTexts.innerHTML = STORY.map((s, i) =>
   `<article class="${i === 0 ? 'is-on' : ''}">
      <p class="eyebrow">${s.kicker}</p>
@@ -97,7 +107,7 @@ $('#storySpacer').style.height = (STORY.length * 100) + 'vh';
 
 /* ═══════════════════════════════════════════════ ЛЕНТА РАБОТ ══ */
 $('#stripTrack').innerHTML = PHOTOS.strip
-  .map(p => `<figure><img src="${P}${p}" alt="Работа мастеров «Айна Рояль»" loading="lazy"></figure>`).join('');
+  .map(p => `<figure><img src="${P}${p}" ${srcset(p)} sizes="(max-width:760px) 62vw, 320px" alt="Работа мастеров «Айна Рояль»" decoding="async" loading="lazy"></figure>`).join('');
 
 /* ══════════════════════════════════════════ СКРОЛЛ-АНИМАЦИИ ══ */
 const hero = $('#hero'), heroFrame = $('#heroFrame'), heroImg = $('#heroImg'), heroCopy = $('#heroCopy');
@@ -377,7 +387,9 @@ $('#galFilters').innerHTML = GALLERY_FILTERS.map(([id, t], i) =>
 
 $('#galGrid').innerHTML = PHOTOS.gallery.map(([p, cat], i) =>
   `<figure class="gal__item" data-cat="${cat}" data-i="${i}">
-     <img src="${P}${p}" alt="Салон «Айна Рояль» — фото ${i + 1}" loading="lazy">
+     <img src="${PX}${p}" ${srcset(p)} ${dims(p)}
+          sizes="(max-width:760px) 48vw, (max-width:1100px) 32vw, 290px"
+          alt="Салон «Айна Рояль» — фото ${i + 1}" decoding="async" loading="lazy">
    </figure>`).join('');
 
 $('#galFilters').addEventListener('click', e => {
@@ -396,8 +408,9 @@ $('#galGrid').addEventListener('click', e => {
   lbAt = lbList.indexOf(it);
   openLb();
 });
-function openLb(){ lbImg.src = $('img', lbList[lbAt]).src; lb.hidden = false; document.body.classList.add('is-locked'); }
-function moveLb(d){ lbAt = (lbAt + d + lbList.length) % lbList.length; lbImg.src = $('img', lbList[lbAt]).src; }
+const bigOf = el => P + $('img', el).currentSrc.split('/').pop();
+function openLb(){ lbImg.src = bigOf(lbList[lbAt]); lb.hidden = false; document.body.classList.add('is-locked'); }
+function moveLb(d){ lbAt = (lbAt + d + lbList.length) % lbList.length; lbImg.src = bigOf(lbList[lbAt]); }
 $('#lbClose').addEventListener('click', () => { lb.hidden = true; document.body.classList.remove('is-locked'); });
 $('#lbPrev').addEventListener('click', () => moveLb(-1));
 $('#lbNext').addEventListener('click', () => moveLb(1));
