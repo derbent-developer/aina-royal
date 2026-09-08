@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Айна Рояль — салон красоты в Дербенте · Aina Royal Studio</title>
+<meta name="description" content="Айна Рояль — студия красоты в центре Дербента. Маникюр и педикюр, волосы, брови и ресницы, косметология, макияж. 5,0 на Яндекс Картах, награда «Хорошее место 2026». Онлайн-запись к мастеру.">
+<meta name="theme-color" content="#FBEEF2">
+<meta property="og:title" content="Айна Рояль — студия красоты в Дербенте">
+<meta property="og:description" content="Пудровые стены, золото в зеркалах и мастера, которым доверяет город. Запись онлайн.">
+<meta property="og:image" content="assets/photos/p02.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/photos/p11.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════ ЗАГРУЗЧИК -->
+<div class="loader" id="loader">
+  <div class="loader__mark">
+    <span class="loader__ars">ARS</span>
+    <span class="loader__sub">Aina&nbsp;Royal&nbsp;Studio</span>
+  </div>
+  <div class="loader__bar"><i></i></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ ШАПКА -->
+<header class="nav" id="nav">
+  <a class="nav__logo" href="#top" aria-label="Айна Рояль — на главную">
+    <span class="nav__ars">ARS</span>
+    <span class="nav__name">Айна&nbsp;Рояль</span>
+  </a>
+
+  <nav class="nav__links" id="navLinks">
+    <a href="#about">О салоне</a>
+    <a href="#services">Услуги</a>
+    <a href="#masters">Мастера</a>
+    <a href="#gallery">Галерея</a>
+    <a href="#reviews">Отзывы</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+
+  <div class="nav__right">
+    <a class="nav__tel" href="tel:+79382042111">+7 938 204-21-11</a>
+    <a class="btn btn--gold nav__cta" href="#booking">Записаться</a>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ══════════════════════════════════════════════════ ГЕРОЙ -->
+<section class="hero" id="hero">
+  <div class="hero__stage">
+    <div class="hero__frame" id="heroFrame">
+      <img class="hero__img" id="heroImg" src="assets/photos/p02.jpg" alt="Интерьер салона красоты «Айна Рояль» в Дербенте" fetchpriority="high">
+      <div class="hero__veil"></div>
+    </div>
+
+    <div class="hero__copy" id="heroCopy">
+      <p class="hero__kicker"><span>Дербент</span><i></i><span>с 2023 года</span></p>
+      <h1 class="hero__title">
+        <span class="line"><span>Айна</span></span>
+        <span class="line"><em><span>Рояль</span></em></span>
+      </h1>
+      <p class="hero__lead">Студия красоты, в которую возвращаются.<br>Пудровый свет, золото в зеркалах и мастера, которым доверяет город.</p>
+      <div class="hero__actions">
+        <a class="btn btn--gold btn--lg" href="#booking">Записаться онлайн</a>
+        <a class="btn btn--ghost btn--lg" href="#services">Услуги и цены</a>
+      </div>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true"><span>прокрутите</span><i></i></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ ЦИФРЫ -->
+<section class="stats reveal" aria-label="Салон в цифрах">
+  <div class="stats__row">
+    <div class="stat">
+      <div class="stat__num"><span class="count" data-to="5" data-dec="1">0</span></div>
+      <div class="stat__cap">рейтинг на Яндекс Картах<br><small>по 170 оценкам</small></div>
+    </div>
+    <div class="stat">
+      <div class="stat__num"><span class="count" data-to="135">0</span></div>
+      <div class="stat__cap">отзывов гостей<br><small>и 271 фотография</small></div>
+    </div>
+    <div class="stat">
+      <div class="stat__num"><span class="count" data-to="100">0</span><span class="stat__pct">%</span></div>
+      <div class="stat__cap">положительных оценок<br><small>интерьера и ухода за бровями</small></div>
+    </div>
+    <div class="stat stat--award">
+      <div class="stat__badge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.6 5.6 6.1.8-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L3.3 8.4l6.1-.8z"/></svg>
+      </div>
+      <div class="stat__cap"><b>Хорошее место 2026</b><br><small>награда Яндекс Карт</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ ИСТОРИЯ (Apple-скролл) -->
+<section class="story" id="about">
+  <div class="story__stage">
+    <div class="story__media" id="storyMedia"><!-- слои подставит JS --></div>
+    <div class="story__grain" aria-hidden="true"></div>
+    <div class="story__texts" id="storyTexts"><!-- тексты подставит JS --></div>
+    <div class="story__dots" id="storyDots" aria-hidden="true"></div>
+  </div>
+  <div class="story__spacer" id="storySpacer"></div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ ЛЕНТА РАБОТ -->
+<section class="strip" id="strip" aria-label="Работы мастеров">
+  <div class="strip__head reveal">
+    <p class="eyebrow">Работы мастеров</p>
+    <h2 class="h2">Каждая деталь<br>на своём месте</h2>
+  </div>
+  <div class="strip__track" id="stripTrack"></div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ УСЛУГИ -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Услуги и цены</p>
+      <h2 class="h2">Всё, ради чего<br>вы приходите</h2>
+      <p class="sec-head__lead">Полный прайс салона. Стоимость может отличаться в зависимости от длины волос и объёма работы — уточните у администратора.</p>
+    </div>
+
+    <div class="svc">
+      <div class="svc__tabs" id="svcTabs" role="tablist"></div>
+      <div class="svc__panels" id="svcPanels"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ МАСТЕРА -->
+<section class="masters" id="masters">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Наши мастера</p>
+      <h2 class="h2">Выберите,<br>к кому пойдёте</h2>
+      <p class="sec-head__lead">Оценки — из карточки онлайн-записи на Яндекс Картах. Нажмите на карточку, чтобы мастер подставился в форму записи.</p>
+    </div>
+    <div class="masters__grid" id="mastersGrid"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ ЗАПИСЬ -->
+<section class="booking" id="booking">
+  <div class="wrap">
+    <div class="sec-head sec-head--center reveal">
+      <p class="eyebrow">Онлайн-запись</p>
+      <h2 class="h2">Займём для вас время</h2>
+    </div>
+
+    <div class="book reveal">
+      <ol class="book__steps" id="bookSteps">
+        <li class="is-active"><span>1</span>Услуга</li>
+        <li><span>2</span>Мастер</li>
+        <li><span>3</span>Дата и время</li>
+        <li><span>4</span>Контакты</li>
+      </ol>
+
+      <div class="book__body">
+
+        <!-- шаг 1 -->
+        <div class="book__pane is-active" data-step="1">
+          <label class="field">
+            <span class="field__label">Направление</span>
+            <select id="bkCat"></select>
+          </label>
+          <label class="field">
+            <span class="field__label">Услуга</span>
+            <select id="bkService"></select>
+          </label>
+          <div class="book__price" id="bkPrice"></div>
+        </div>
+
+        <!-- шаг 2 -->
+        <div class="book__pane" data-step="2">
+          <div class="book__masters" id="bkMasters"></div>
+        </div>
+
+        <!-- шаг 3 -->
+        <div class="book__pane" data-step="3">
+          <div class="book__label">Ближайшие дни</div>
+          <div class="book__days" id="bkDays"></div>
+          <div class="book__label">Свободное время</div>
+          <div class="book__times" id="bkTimes"></div>
+          <p class="book__note">Время подтвердит администратор — салон работает с 09:00 до 18:00.</p>
+        </div>
+
+        <!-- шаг 4 -->
+        <div class="book__pane" data-step="4">
+          <div class="book__cols">
+            <div>
+              <label class="field">
+                <span class="field__label">Как вас зовут</span>
+                <input id="bkName" type="text" placeholder="Имя" autocomplete="name">
+              </label>
+              <label class="field">
+                <span class="field__label">Телефон</span>
+                <input id="bkPhone" type="tel" placeholder="+7 (___) ___-__-__" autocomplete="tel">
+              </label>
+              <label class="field">
+                <span class="field__label">Комментарий <i>— по желанию</i></span>
+                <textarea id="bkNote" rows="3" placeholder="Например: хочу нюдовый оттенок"></textarea>
+              </label>
+            </div>
+            <aside class="book__summary" id="bkSummary"></aside>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="book__foot">
+        <button class="btn btn--ghost" id="bkBack" type="button">Назад</button>
+        <div class="book__foot-right">
+          <button class="btn btn--gold" id="bkNext" type="button">Далее</button>
+        </div>
+      </div>
+
+      <div class="book__done" id="bkDone" hidden>
+        <div class="book__done-mark">✓</div>
+        <h3>Заявка собрана</h3>
+        <p id="bkDoneText"></p>
+        <div class="book__done-actions">
+          <a class="btn btn--gold btn--lg" id="bkWa" href="#" target="_blank" rel="noopener">Отправить в WhatsApp</a>
+          <a class="btn btn--ghost btn--lg" href="tel:+79382042111">Позвонить в салон</a>
+        </div>
+        <button class="link" id="bkAgain" type="button">Изменить заявку</button>
+      </div>
+    </div>
+
+    <p class="booking__alt">
+      Предпочитаете привычный способ? <a href="https://yandex.ru/maps/org/aina_royal_studio/151131584876/" target="_blank" rel="noopener">Онлайн-запись на Яндекс Картах</a>
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ ГАЛЕРЕЯ -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Галерея</p>
+      <h2 class="h2">Салон и работы</h2>
+      <p class="sec-head__lead">Живые кадры из студии — интерьер, процесс и результат.</p>
+    </div>
+    <div class="gal__filters" id="galFilters"></div>
+    <div class="gal__grid" id="galGrid"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ ОТЗЫВЫ -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Отзывы</p>
+      <h2 class="h2">Что говорят гости</h2>
+    </div>
+
+    <div class="topics reveal" id="topics"></div>
+
+    <div class="rev" id="rev">
+      <div class="rev__track" id="revTrack"></div>
+      <div class="rev__nav">
+        <button id="revPrev" aria-label="Предыдущий отзыв">‹</button>
+        <div class="rev__dots" id="revDots"></div>
+        <button id="revNext" aria-label="Следующий отзыв">›</button>
+      </div>
+    </div>
+
+    <p class="rev__all">
+      <a href="https://yandex.ru/maps/org/aina_royal_studio/151131584876/reviews/" target="_blank" rel="noopener">Все 135 отзывов на Яндекс Картах →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ КОНТАКТЫ -->
+<section class="contacts" id="contacts">
+  <div class="wrap contacts__grid">
+    <div class="contacts__info reveal">
+      <p class="eyebrow">Контакты</p>
+      <h2 class="h2">Ждём вас<br>в центре Дербента</h2>
+
+      <dl class="cinfo">
+        <div><dt>Адрес</dt><dd>ул. Владимира Ленина, 6<br><small>рядом с детской поликлиникой №1</small></dd></div>
+        <div><dt>Телефон</dt><dd><a href="tel:+79382042111">+7 (938) 204-21-11</a><br><small>администратор</small></dd></div>
+        <div><dt>Часы работы</dt><dd>Ежедневно 09:00 — 18:00</dd></div>
+      </dl>
+
+      <div class="contacts__btns">
+        <a class="btn btn--gold" href="#booking">Записаться</a>
+        <a class="btn btn--ghost" href="https://yandex.ru/maps/org/aina_royal_studio/151131584876/" target="_blank" rel="noopener">Маршрут</a>
+      </div>
+    </div>
+
+    <div class="contacts__map reveal">
+      <div class="map" id="map">
+        <img src="assets/photos/p01.jpg" alt="Фасад здания, в котором находится салон «Айна Рояль»">
+        <button class="map__btn" id="mapBtn" type="button">Показать карту</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════════════════════════════════════════════ ПОДВАЛ -->
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div class="foot__brand">
+      <span class="foot__ars">ARS</span>
+      <span class="foot__name">Айна Рояль · Aina Royal Studio</span>
+      <span class="foot__tag">Студия красоты · Дербент</span>
+    </div>
+    <nav class="foot__links">
+      <a href="#services">Услуги</a>
+      <a href="#masters">Мастера</a>
+      <a href="#gallery">Галерея</a>
+      <a href="#booking">Запись</a>
+      <a href="tel:+79382042111">+7 938 204-21-11</a>
+    </nav>
+    <p class="foot__copy">© <span id="year"></span> Айна Рояль. Дербент, ул. Владимира Ленина, 6</p>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════════ ЛАЙТБОКС -->
+<div class="lb" id="lb" hidden>
+  <button class="lb__close" id="lbClose" aria-label="Закрыть">×</button>
+  <button class="lb__prev" id="lbPrev" aria-label="Назад">‹</button>
+  <img id="lbImg" alt="" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+  <button class="lb__next" id="lbNext" aria-label="Вперёд">›</button>
+</div>
+
+<a class="fab" href="#booking" aria-label="Записаться">Записаться</a>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
