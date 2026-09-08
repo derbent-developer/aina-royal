@@ -209,6 +209,7 @@ button{ font:inherit; color:inherit; }
   will-change:transform, border-radius, inset;
   transform-origin:50% 50%;
 }
+.hero__frame picture{ display:contents; }
 .hero__img{
   width:100%; height:100%; object-fit:cover; object-position:center 42%;
   will-change:transform, filter;
@@ -690,6 +691,12 @@ button{ font:inherit; color:inherit; }
 
   /* шапка компактнее, кнопка записи всегда под большим пальцем */
   .nav{ padding:14px 16px; gap:10px; }
+  /* над фотографией логотип тонет в бликах — подкладываем лёгкую тень */
+  .nav:not(.is-stuck)::before{
+    content:''; position:absolute; inset:-1px 0 auto; height:118px; z-index:-1;
+    background:linear-gradient(180deg, rgba(38,22,30,.6) 0%, rgba(38,22,30,.28) 55%, rgba(38,22,30,0) 100%);
+    pointer-events:none;
+  }
   .nav__logo{ flex:0 0 auto; }
   .nav__right{ gap:10px; }
   .nav__name{ display:none; }
@@ -699,7 +706,7 @@ button{ font:inherit; color:inherit; }
 
   /* обложка */
   .hero{ height:190vh; }
-  .hero__img{ object-position:center 45%; }
+  .hero__img{ object-position:center 56%; }
   .hero__kicker{ font-size:10px; letter-spacing:.26em; margin-bottom:16px; }
   .hero__title{ margin-bottom:20px; }
   .hero__lead{ font-size:15.5px; margin-bottom:28px; }

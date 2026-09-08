@@ -14,7 +14,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/photos/p02.jpg" imagesrcset="assets/photos/xs/p02.jpg 400w, assets/photos/sm/p02.jpg 640w, assets/photos/p02.jpg 960w" imagesizes="100vw">
+<link rel="preload" as="image" media="(max-width:760px)" href="assets/photos/sm/p41.jpg" imagesrcset="assets/photos/xs/p41.jpg 400w, assets/photos/sm/p41.jpg 640w, assets/photos/p41.jpg 960w" imagesizes="100vw">
+<link rel="preload" as="image" media="(min-width:761px)" href="assets/photos/p02.jpg" imagesrcset="assets/photos/sm/p02.jpg 640w, assets/photos/p02.jpg 1280w" imagesizes="100vw">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -57,7 +58,18 @@
 <section class="hero" id="hero">
   <div class="hero__stage">
     <div class="hero__frame" id="heroFrame">
-      <img class="hero__img" id="heroImg" src="assets/photos/p02.jpg" srcset="assets/photos/xs/p02.jpg 400w, assets/photos/sm/p02.jpg 640w, assets/photos/p02.jpg 960w" sizes="100vw" alt="Интерьер салона красоты «Айна Рояль» в Дербенте" fetchpriority="high" decoding="async">
+      <picture>
+        <!-- на телефоне вертикальный кадр: горизонтальный обрезался бы в полоску стены -->
+        <source media="(max-width:760px)"
+                srcset="assets/photos/xs/p41.jpg 400w, assets/photos/sm/p41.jpg 640w, assets/photos/p41.jpg 960w"
+                sizes="100vw">
+        <img class="hero__img" id="heroImg"
+             src="assets/photos/p02.jpg"
+             srcset="assets/photos/sm/p02.jpg 640w, assets/photos/p02.jpg 1280w"
+             sizes="100vw"
+             alt="Интерьер салона красоты «Айна Рояль» в Дербенте"
+             fetchpriority="high" decoding="async">
+      </picture>
       <div class="hero__veil"></div>
     </div>
 
