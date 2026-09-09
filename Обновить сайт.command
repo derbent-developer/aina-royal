@@ -8,7 +8,7 @@
 cd "$(dirname "$0")" || exit 1
 
 BOLD=$'\e[1m'; DIM=$'\e[2m'; GREEN=$'\e[32m'; RED=$'\e[31m'; YELLOW=$'\e[33m'; OFF=$'\e[0m'
-SITE="https://aina-royal.derbent-dev.workers.dev/"
+SITE="https://derbent-developer.github.io/aina-royal/"
 
 finish () {
   echo
