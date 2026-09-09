@@ -1,0 +1,22 @@
+# Правила кэширования для Cloudflare Pages.
+# GitHub Pages этот файл игнорирует — он ни на что не влияет, пока сайт там.
+
+# Стили и скрипты помечены версией (?v=6), поэтому их можно кэшировать надолго:
+# при следующей правке скрипт обновления сменит версию и браузер скачает заново.
+/assets/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Фотографии живут под своими именами, поэтому кэш на неделю, а не навсегда:
+# если заменить файл тем же именем, обновление дойдёт до посетителей за 7 дней.
+/assets/photos/*
+  Cache-Control: public, max-age=604800
+
+# Саму страницу браузер должен перепроверять каждый раз, иначе правки
+# будут висеть в кэше — как это случилось с GitHub Pages.
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
