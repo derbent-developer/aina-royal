@@ -17,11 +17,14 @@
 # Стили и скрипты помечены версией (?v=6) — их можно держать долго:
 # при следующей правке скрипт обновления сменит версию, браузер скачает заново.
 /assets/css/*
+  ! Cache-Control
   Cache-Control: public, max-age=31536000, immutable
 /assets/js/*
+  ! Cache-Control
   Cache-Control: public, max-age=31536000, immutable
 
 # Фотографии лежат под своими именами, поэтому неделя, а не «навсегда»:
 # заменишь файл тем же именем — обновление дойдёт до посетителей за 7 дней.
 /assets/photos/*
+  ! Cache-Control
   Cache-Control: public, max-age=604800
