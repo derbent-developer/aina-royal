@@ -3,8 +3,7 @@
 Одностраничный сайт студии красоты **«Айна Рояль» / Aina Royal Studio** (Дербент, ул. Владимира Ленина, 6).
 Без сборки и зависимостей — обычные HTML, CSS и JavaScript.
 
-**Сайт в интернете:** адрес появится здесь после подключения Cloudflare Pages
-(старый https://derbent-developer.github.io/aina-royal/ работает, пока репозиторий публичный)
+**Сайт в интернете:** https://aina-royal.akhmetkhanov555.workers.dev
 
 ## Как обновить сайт
 

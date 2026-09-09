@@ -8,7 +8,7 @@
 cd "$(dirname "$0")" || exit 1
 
 BOLD=$'\e[1m'; DIM=$'\e[2m'; GREEN=$'\e[32m'; RED=$'\e[31m'; YELLOW=$'\e[33m'; OFF=$'\e[0m'
-SITE="https://derbent-developer.github.io/aina-royal/"
+SITE="https://aina-royal.akhmetkhanov555.workers.dev/"
 
 finish () {
   echo
@@ -73,7 +73,7 @@ echo "${DIM}Отправляю на GitHub…${OFF}"
 if git push origin main; then
   echo
   echo "${GREEN}${BOLD}Готово.${OFF}"
-  echo "Сайт обновится через 1–2 минуты: $SITE"
+  echo "Сайт обновится примерно через минуту: $SITE"
   echo
   echo "${DIM}Открыть сайт? (y — да)${OFF}"
   read -r "OPEN?→ "
